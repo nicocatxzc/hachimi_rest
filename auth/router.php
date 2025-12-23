@@ -40,7 +40,9 @@ function hachimi_login($req)
     $u = $req['username'];
     $p = $req['password'];
 
-    $user = wp_authenticate($u, $p);
+    // $user = wp_authenticate($u, $p);
+    $user = wp_authenticate_username_password(null, $u, $p);
+
     if (is_wp_error($user)) {
         return new WP_Error('invalid', 'Login failed', 401);
     }
