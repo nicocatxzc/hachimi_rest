@@ -117,6 +117,14 @@ function hachimi_match_home($path)
 
 function hachimi_match_query($vars)
 {
+    $path = trim($_GET['path'], '/');
+    if (hachimi_match_file($path)) {
+        return [
+            'type' => 'static',
+            'file_path' => $path
+        ];
+    }
+
     $q = new WP_Query($vars);
 
     // 首页？
@@ -254,4 +262,36 @@ function hachimi_match_query($vars)
     // }
 
     return ['type' => '404'];
+}
+
+function hachimi_match_file($path)
+{
+    if (!preg_match('/\.[a-zA-Z0-9]+$/', $path)) {
+        return false;
+    }
+
+    $blacklist = ['.php', '.env', '.git', '.htaccess', '.user.ini'];
+
+    foreach ($blacklist as $item) {
+        if (stripos($path, $item) !== false) {
+            return false;
+        }
+    }
+
+    // 转换为绝对路径
+    $file = realpath(ABSPATH . ltrim($path, '/'));
+
+    if (!$file) return false;
+
+    // 确保文件在网站目录下，防止穿越
+    if (strpos($file, realpath(ABSPATH)) !== 0) {
+        return false;
+    }
+
+    // 判断是否是文件
+    if (is_file($file)) {
+        return true;
+    }
+
+    return false;
 }
