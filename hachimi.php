@@ -20,8 +20,11 @@ include_once __DIR__."/wp-api-menus/wp-api-menus.php";
 include_once __DIR__."/api/nav.php";
 include_once __DIR__."/api/router.php";
 include_once __DIR__."/api/settings.php";
+include_once __DIR__."/api/theme_options.php";
 include_once __DIR__."/api/comment.php";
 include_once __DIR__."/api/gethead.php";
+include_once __DIR__."/api/links.php";
+include_once __DIR__."/blocks/index.php";
 
 // 安装时注册令牌管理表
 function hachimi_install()
