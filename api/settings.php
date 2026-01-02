@@ -20,6 +20,7 @@ function hachimi_get_settings()
         'posts_per_page' => (int)get_option('posts_per_page', 10),
         'comments_per_page' => (int)get_option('comments_per_page', 50),
         'sticky_post_ids' => get_option('sticky_posts', array()),
+        'time_zone' => wp_timezone_string(),
         'global_style'=> $global,
     );
 }
