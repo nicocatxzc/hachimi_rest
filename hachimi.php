@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 include_once __DIR__."/auth/auth_init.php";
+include_once __DIR__."/option.php";
 include_once __DIR__."/wp-api-menus/wp-api-menus.php";
 include_once __DIR__."/api/nav.php";
 include_once __DIR__."/api/router.php";

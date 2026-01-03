@@ -16,13 +16,13 @@ add_filter('admin_bar_menu', function ($bar) {
     ], 180); // 3 分钟
 
     if ($node) {
-        $node->href = 'https://frontend.app/sso?code=' . rawurlencode($code);
+        $node->href = 'https://'.hachimi_get_setting('frontend_domain').'/sso?code=' . rawurlencode($code);
         $bar->add_node($node);
     } else {
         $bar->add_node([
             'id'    => 'hachimi-frontend',
             'title' => '登录到前台',
-            'href'  => 'https://frontend.app/sso?code=' . rawurlencode($code),
+            'href'  => 'https://'.hachimi_get_setting('frontend_domain').'/sso?code=' . rawurlencode($code),
         ]);
     }
 }, 100);

@@ -44,8 +44,8 @@ function hachimi_verify_token($raw)
     }
 
     return [
-        "user"=>get_user_by('id', $row->user_id),
-        "expire"=>$row->expires_at
+        "user" => get_user_by('id', $row->user_id),
+        "expire" => $row->expires_at
     ];
 }
 
@@ -55,4 +55,37 @@ function hachimi_revoke_token($raw)
     $wpdb->delete("{$wpdb->prefix}hachimi_tokens", [
         'token_hash' => hachimi_hash($raw)
     ]);
+}
+
+function hachimi_revoke_user_tokens($user_id)
+{
+    global $wpdb;
+
+    $count = $wpdb->get_var(
+        $wpdb->prepare(
+            "SELECT COUNT(*) FROM {$wpdb->prefix}hachimi_tokens WHERE user_id = %d",
+            $user_id
+        )
+    );
+
+    $wpdb->query(
+        $wpdb->prepare(
+            "DELETE FROM {$wpdb->prefix}hachimi_tokens WHERE user_id = %d",
+            $user_id
+        )
+    );
+
+    return $count;
+}
+
+
+function hachimi_revoke_all_tokens()
+{
+    global $wpdb;
+
+    $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}hachimi_tokens");
+
+    $wpdb->query("DELETE FROM {$wpdb->prefix}hachimi_tokens");
+
+    return $count;
 }
