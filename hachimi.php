@@ -27,6 +27,7 @@ include_once __DIR__."/api/gethead.php";
 include_once __DIR__."/api/links.php";
 include_once __DIR__."/blocks/index.php";
 include_once __DIR__."/api/cache.php";
+include_once __DIR__."/api/post_views.php";
 
 // 安装时注册令牌管理表
 function hachimi_install()
