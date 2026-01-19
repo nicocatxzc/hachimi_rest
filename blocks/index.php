@@ -6,3 +6,7 @@ add_shortcode('friend_link', function(){
 add_shortcode('bangumi', function(){
     return '<div id="hachimi-bangumi"></div>';
 });
+
+add_shortcode('favlist', function(){
+    return '<div id="hachimi-favlist"></div>';
+});
