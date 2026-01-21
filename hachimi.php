@@ -39,8 +39,8 @@ include_once __DIR__."/api/theme_options.php";
 // 评论用户身份支持
 include_once __DIR__."/api/comment.php";
 
-// 头部样式截取支持
-include_once __DIR__."/api/gethead.php";
+// 模板截取支持
+include_once __DIR__."/api/template.php";
 
 // link_manager支持
 include_once __DIR__."/api/links.php";
