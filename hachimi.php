@@ -15,19 +15,47 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+// 认证模块
 include_once __DIR__."/auth/auth_init.php";
+
+// 注册插件设置项
 include_once __DIR__."/option.php";
+
+// 载入wp-api-menus插件作为支持
 include_once __DIR__."/wp-api-menus/wp-api-menus.php";
+
+// 导航栏内容接口
 include_once __DIR__."/api/nav.php";
+
+// 前端路由接口
 include_once __DIR__."/api/router.php";
+
+// 站点配置接口
 include_once __DIR__."/api/settings.php";
+
+// 主题设置项接口
 include_once __DIR__."/api/theme_options.php";
+
+// 评论用户身份支持
 include_once __DIR__."/api/comment.php";
+
+// 头部样式截取支持
 include_once __DIR__."/api/gethead.php";
+
+// link_manager支持
 include_once __DIR__."/api/links.php";
-include_once __DIR__."/blocks/index.php";
+
+// 缓存接口
 include_once __DIR__."/api/cache.php";
+
+// 浏览量接口
 include_once __DIR__."/api/post_views.php";
+
+// 短代码支持
+include_once __DIR__."/blocks/shortcode.php";
+
+// 古腾堡区块拓展
+include_once __DIR__."/blocks/blocks.php";
 
 // 安装时注册令牌管理表
 function hachimi_install()
