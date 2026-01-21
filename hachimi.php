@@ -27,6 +27,9 @@ include_once __DIR__."/wp-api-menus/wp-api-menus.php";
 // 导航栏内容接口
 include_once __DIR__."/api/nav.php";
 
+// 工具栏内容接口
+include_once __DIR__."/api/widget.php";
+
 // 前端路由接口
 include_once __DIR__."/api/router.php";
 

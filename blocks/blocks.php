@@ -31,24 +31,19 @@ function iro_editor_vars($hook)
 add_action('enqueue_block_editor_assets', 'sakurairo_editor_styles');
 function sakurairo_editor_styles()
 {
-    global $core_lib_basepath;
-    wp_enqueue_style('fontawesome-icons', iro_opt('fontawesome_source', 'https://s4.zstatic.net/ajax/libs/font-awesome/6.7.2/css/all.min.css'), array(), null);
-    wp_enqueue_style('iro-codes', $core_lib_basepath . '/css/shortcodes.css', array(), IRO_VERSION);
+    wp_enqueue_style('fontawesome-icons', 'https://s4.zstatic.net/ajax/libs/font-awesome/6.7.2/css/all.min.css', array(), null);
+    wp_enqueue_style('iro-codes', plugin_dir_url(__FILE__) . 'build/style-index.css', array(), '3.0.10');
 }
 
 function iro_load_editor_block()
 {
+    $asset_file = include(plugin_dir_path(__FILE__) . 'build/index.asset.php');
     // 加载编辑器脚本
     wp_enqueue_script(
         'iroBlockEditor',
-        get_theme_file_uri('/inc/blocks/build/index.js'),
-        [
-            'wp-hooks',
-            'wp-i18n',
-            'wp-element',
-            'wp-components',
-            'wp-block-editor',
-        ]
+        plugin_dir_url(__FILE__) . 'build/index.js',
+        $asset_file['dependencies'],
+        $asset_file['version']
     );
 }
 add_action('enqueue_block_editor_assets', 'iro_load_editor_block');
