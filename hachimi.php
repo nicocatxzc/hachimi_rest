@@ -61,6 +61,9 @@ include_once __DIR__."/blocks/shortcode.php";
 // 古腾堡区块拓展
 include_once __DIR__."/blocks/blocks.php";
 
+// 页面摘要支持
+include_once __DIR__."/api/page_excerpt.php";
+
 // 安装时注册令牌管理表
 function hachimi_install()
 {
