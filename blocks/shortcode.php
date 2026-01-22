@@ -10,3 +10,7 @@ add_shortcode('bangumi', function(){
 add_shortcode('favlist', function(){
     return '<div id="hachimi-favlist"></div>';
 });
+
+add_shortcode('archive', function(){
+    return '<div id="hachimi-archive"></div>';
+});
