@@ -1,17 +1,17 @@
 <?php
-add_shortcode('friend_link', function(){
+add_shortcode('friend_link', function () {
     return '<div id="hachimi-friend-link"></div>';
 });
 
-add_shortcode('bangumi', function(){
+add_shortcode('bangumi', function () {
     return '<div id="hachimi-bangumi"></div>';
 });
 
-add_shortcode('favlist', function(){
+add_shortcode('favlist', function () {
     return '<div id="hachimi-favlist"></div>';
 });
 
-add_shortcode('archive', function(){
+add_shortcode('archive', function () {
     return '<div id="hachimi-archive"></div>';
 });
 
@@ -60,7 +60,9 @@ add_shortcode('ghcard', function ($atts) {
                 'owner' => $owner,
                 'description' => "未知的仓库{$path}",
                 'stars' => 0,
-                'language' => ''
+                'language' => '',
+                'forks' => 0,
+                'license' => '',
             ];
         } else {
             $body = wp_remote_retrieve_body($response);
@@ -74,6 +76,8 @@ add_shortcode('ghcard', function ($atts) {
                 'description' => $api_data['description'] ?? '',
                 'stars'       => $api_data['stargazers_count'] ?? 0,
                 'language'    => $api_data['language'] ?? '',
+                'forks'       => $api_data['forks_count'] ?? 0,
+                'license'     => $api_data['license']['key'] ?? ''
             ];
         }
 
