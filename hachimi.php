@@ -5,7 +5,7 @@
  * Description: 为hachimi headless wordpress主题提供RESTful api支持
  * Author: nicocat
  * Author URI: https://github.com/nicocatxzc
- * Version: 1.0.0
+ * Version: 1.0.1
  * Text Domain: hachimi
  * Requires at least: 6.2
  * Requires PHP: 8.0
