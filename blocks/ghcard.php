@@ -56,7 +56,7 @@ function hachimi_render_ghcard($path) {
     }
 
     // 保存数据
-    $data_info = esc_attr(wp_json_encode($data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP));
+    $data_info = esc_attr(wp_json_encode($data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE));
 
     return '<div class="hachimi-ghcard" data-info="' . $data_info . '"></div>';
 }
