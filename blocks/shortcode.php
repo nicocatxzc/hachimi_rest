@@ -56,7 +56,7 @@ add_action('init', function () {
             'type' => $type,
             'content' => $content
         ]);
-        return '<div class="hachimi-notice" data-info="' . $data . '></div>';
+        return "<div class='hachimi-notice' data-info='" . $data . "'></div>";
     }
 
     add_shortcode('task', fn($a, $c = '') => iro_render_notice('task', $c));
@@ -87,7 +87,7 @@ add_action('init', function () {
             'color' => esc_attr($atts['color'] ?? ''),
             'title' => wp_kses_post($atts['title'] ?? ''),
         ]);
-        return '<div class="hachimi-showcard" data-info="' . $data . '"></div>';
+        return "<div class='hachimi-showcard' data-info='" . $data . "'></div>";
     }
 
     add_shortcode('showcard', function ($attr, $content = '') {
@@ -134,7 +134,7 @@ add_action('init', function () {
             'content' => $content,
         ]);
 
-        return '<div class="hachimi-conversation" data-info="' . $data . '"></div>';
+        return "<div class='hachimi-conversation' data-info='" . $data . "'></div>";
     }
 
     add_shortcode('conversations', function ($attr, $content = '') {
@@ -167,7 +167,7 @@ add_action('init', function () {
             'av' => $av_matches[1],
             'bv' => $bv_matches[1],
         ]);
-        return '<div class="hachimi-bvideo" data-info="' . $data . '></div>';
+        return "<div class='hachimi-bvideo' data-info='" . $data . "'></div>";
     }
 
     add_shortcode('vbilibili', function ($atts, $content = null) {
